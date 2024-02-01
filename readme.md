@@ -8,5 +8,6 @@
 - api/book-detail/\<int:ID\>/
 - api/book-detail-update/\<int:BookID\>/
 - api/create-book-detail/
+- api/borrow-book/
 - api/return-book/\<int:BookID\>/
 - api/list-borrowed-books/

@@ -11,6 +11,7 @@ urlpatterns = [
          views.BookDetailRetriveUpdateDestroy.as_view(), name="book-detail-update"),
     path('create-book-detail/', views.CreateBookDetail.as_view(),
          name='create-book-detail'),
+    path('borrow-book/', views.BorrowBookView.as_view(), name = 'borrow-book'),
     path('return-book/<int:BookID>/',
          views.ReturnBookView.as_view(), name='return-book'),
     path('list-borrowed-books/', views.ListBurrowedBooks.as_view(),

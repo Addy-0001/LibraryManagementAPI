@@ -24,7 +24,7 @@ class BookDetail(models.Model):
 
 class BorrowedBooks(models.Model):
     UserID = models.ForeignKey(UserModel, on_delete=models.CASCADE)
-    BookID = models.ForeignKey(Book, on_delete=models.CASCADE)
+    BookID = models.OneToOneField(Book, on_delete=models.CASCADE)
     BorrowDate = models.DateField()
     ReturnDate = models.DateField()
 
