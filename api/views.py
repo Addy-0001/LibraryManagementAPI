@@ -6,6 +6,7 @@ from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveUpdateAP
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 
 
 class UserListView(ListAPIView):
@@ -14,6 +15,7 @@ class UserListView(ListAPIView):
 
 
 class UserCreateView(CreateAPIView):
+    permission_classes = [IsAuthenticated]
     queryset = UserModel.objects.all()
     serializer_class = UserModelSerializer
 
@@ -35,6 +37,7 @@ class BookListView(ListAPIView):
 
 
 class BookCreateView(CreateAPIView):
+    permission_classes = [IsAuthenticated]
     queryset = Book
     serializer_class = BookModelSerializer
 
@@ -63,11 +66,13 @@ class BookDetailRetriveUpdateDestroy(RetrieveUpdateAPIView):
 
 
 class BorrowBookView(CreateAPIView):
+    permission_classes = [IsAuthenticated]
     queryset = BorrowedBooks.objects.all()
     serializer_class = BorrowedBooksModelSerializer
 
 
 class ReturnBookView(DestroyAPIView):
+    permission_classes = [IsAuthenticated]
     queryset = BorrowedBooks.objects.all()
     serializer_class = BorrowedBooksModelSerializer
     lookup_url_kwarg = 'BookID'
